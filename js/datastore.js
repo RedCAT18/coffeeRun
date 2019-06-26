@@ -2,9 +2,15 @@
   'use strict';
   var App = window.App || {};
 
+  //constructor
   function DataStore() {
-    console.log('running the DataStore function...');
+    this.data = {};
   }
+
+  //prototype function
+  DataStore.prototype.add = function(key, val) {
+    this.data[key] = val;
+  };
 
   App.DataStore = DataStore;
   window.App = App;
