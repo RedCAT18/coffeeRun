@@ -12,6 +12,21 @@
     this.data[key] = val;
   };
 
+  //method getting value through key
+  DataStore.prototype.get = function(key) {
+    return this.data[key];
+  };
+
+  //method getting all values (no need key)
+  DataStore.prototype.getAll = function() {
+    return this.data;
+  };
+
+  //method remobing value through key
+  DataStore.prototype.remove = function(key) {
+    delete this.data[key];
+  };
+
   App.DataStore = DataStore;
   window.App = App;
 })(window);
