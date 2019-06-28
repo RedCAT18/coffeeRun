@@ -4,8 +4,8 @@
   var App = window.App || {};
   var $ = window.jQuery;
 
-  function printRange() {
-    var range = $('input#strengthLevel')[0].value;
+  function printRange(r) {
+    var range = r || $('input#strengthLevel')[0].value;
 
     if (range <= 30) {
       $('span.caffeine-rate')
@@ -58,7 +58,8 @@
 
       //reset form after submit.
       this.reset();
-      this.element[0].focus(); //focus on the first form
+      printRange(30);
+      this.elements[0].focus(); //focus on the first form
     });
   };
 
