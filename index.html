@@ -31,6 +31,7 @@
                 name="coffee"
                 class="form-control"
                 autofocus
+                required
               />
             </div>
             <div class="form-group">
@@ -42,6 +43,8 @@
                 class="form-control"
                 value=""
                 placeholder="dr@who.com"
+                required
+                pattern="[a-zA-Z0-9\s]+"
               />
             </div>
             <div class="radio">
@@ -104,6 +107,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"
       charset="utf-8"
     ></script>
+    <script src="js/validation.js" charset="utf-8"></script>
     <script src="js/checklist.js" charset="utf-8"></script>
     <script src="js/formHandler.js" charset="utf-8"></script>
     <script src="js/datastore.js" charset="utf-8"></script>

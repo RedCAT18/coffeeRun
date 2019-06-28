@@ -2,3 +2,7 @@
   padding-left: 20px;
   font-weight: bold;
 }
+
+form :focus:required:invalid {
+  border-color: #a94442;
+}
