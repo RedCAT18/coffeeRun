@@ -12,24 +12,31 @@
   //method adding new order
   Truck.prototype.createOrder = function(order) {
     console.log('Adding order for ' + order.emailAddress);
-    this.db.add(order.emailAddress, order);
+    return this.db.add(order.emailAddress, order);
   };
 
   //method deleting existing order
   Truck.prototype.deliverOrder = function(customerId) {
     console.log('Delivering order for ' + customerId);
-    this.db.remove(customerId);
+    return this.db.remove(customerId);
   };
 
   //method printing orders
-  Truck.prototype.printOrders = function() {
+  Truck.prototype.printOrders = function(printFn) {
     //get all customers from orders
-    var customerIdArray = Object.keys(this.db.getAll());
-
-    console.log('Truck # ' + this.truckId + ' has pending orders : ');
-    customerIdArray.forEach(
-      function(id) {
-        console.log(this.db.get(id));
+    return this.db.getAll().then(
+      function(orders) {
+        // var customerIdArray = Object.keys(this.db.getAll());
+        var customerIdArray = Object.keys(orders);
+        console.log('Truck # ' + this.truckId + ' has pending orders : ');
+        customerIdArray.forEach(
+          function(id) {
+            console.log(orders[id]);
+            if (printFn) {
+              printFn(orders[id]);
+            }
+          }.bind(this)
+        );
       }.bind(this)
     );
   };

@@ -54,12 +54,14 @@
           console.log(item.name + ' is ' + item.value);
         });
       console.log(data);
-      fn(data);
-
-      //reset form after submit.
-      this.reset();
-      printRange(30);
-      this.elements[0].focus(); //focus on the first form
+      fn(data).then(
+        function() {
+          //reset form after submit when it successes.
+          this.reset();
+          printRange(30);
+          this.elements[0].focus(); //focus on the first form
+        }.bind(this)
+      );
     });
   };
 
